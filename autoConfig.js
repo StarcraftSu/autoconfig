@@ -33,7 +33,7 @@ var dataController = (function(){
       },
       store:function(){
         var currentConfig;
-        //转localStorage 需要先转成字符串
+        //存localStorage 需要先转成字符串
         currentConfig = JSON.stringify(this.getConfig());
         localStorage.setItem('lastConfig',currentConfig);
       },
@@ -161,6 +161,18 @@ var dataController = (function(){
         this.updateFontsize(sizeKey);
         fontKey = obj.font;
         this.updateFont(fontKey);
+      },
+      loading:function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.target.classList.add('loading');
+        e.target.classList.add('flip');
+        e.target.setAttribute('disabled','disabled');
+        setTimeout(function(){
+          e.target.classList.remove('loading');
+          e.target.classList.remove('flip');
+          e.target.removeAttribute('disabled');
+        },1500);
       }
       
     }
@@ -193,7 +205,8 @@ var dataController = (function(){
         $(this).addClass('selected').siblings('div').removeClass('selected');
       });
       //存储按钮事件
-      $(DOM.store).click(function(){
+      $(DOM.store).click(function(e){
+        UI.loading(e);
         DATA.store();
       });
       //还原默认按钮事件
@@ -239,4 +252,6 @@ var dataController = (function(){
   })(UIController,dataController);
   
   Controller.init();
+    
+
   
