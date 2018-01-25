@@ -40,7 +40,6 @@ var dataController = (function(){
       //刷新缓存 
       refresh:function(){
         var storage = localStorage.getItem('lastConfig');
-        console.log(storage);
         if(storage!=='[object Object]'&&storage!==null){
           config = JSON.parse(storage)
         }

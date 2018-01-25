@@ -21,9 +21,9 @@ gulp.task('watch',function(){
 	});
 
 
-	// watch('./autoConfig.js',function(){
-	// 	gulp.start('jsInject');
-	// })
+	watch('./autoConfig.js',function(){
+		gulp.start('jsInject');
+	})
 });
 
 
@@ -32,9 +32,9 @@ gulp.task('cssInject',['styles'],function(){
 	.pipe(browserSync.stream());
 });
 
-// gulp.task('jsInject',['scripts'],function(){
-// 	console.log('js changed');
-// 	return gulp.src('./autoConfig.js')
-// 	.pipe(browserSync.stream());
+gulp.task('jsInject',function(){
+	console.log('js changed');
+	return gulp.src('./autoConfig.js')
+	.pipe(browserSync.stream());
 
-// });
+});

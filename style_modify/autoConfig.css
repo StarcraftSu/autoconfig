@@ -290,7 +290,7 @@ body{
   button,
   button:after,
   button:before {
-      padding:.6875rem 2rem;
+      padding:.6875rem 1rem;
       -webkit-transition:-webkit-transform 0.75s,background-color .125s;
       -webkit-transition:background-color .125s,-webkit-transform 0.75s;
       transition:background-color .125s,-webkit-transform 0.75s;
@@ -368,5 +368,8 @@ body{
   @media all and (max-width:1670px){ 
     .config-title h2{
       font-size:1.2rem;
+    }
+    button{
+      font-size:0.8rem;
     }
   }
