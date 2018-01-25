@@ -403,7 +403,7 @@ body{
       transform: translateY(-40%) rotate(10deg);
       transition:all 0.3s ease-in;
   }
-
+ 
   /*响应式 兼容至1440px*/
   @media all and (max-width:1670px){ 
     .config-title h2{

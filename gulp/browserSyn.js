@@ -6,7 +6,7 @@ gulp.task('watch',function(){
 	notify:false,
 	browserSync.init({
 		server:{
-			baseDir:"autoConfig"
+			baseDir:"./"
 		}
 	});
 
@@ -16,11 +16,12 @@ gulp.task('watch',function(){
 	});
 
 	watch('./autoConfig.css',function(){
+		console.log('css changed');
 		gulp.start('cssInject');
 	});
 
 
-	// watch('autoConfig.js',function(){
+	// watch('./autoConfig.js',function(){
 	// 	gulp.start('jsInject');
 	// })
 });
@@ -32,7 +33,8 @@ gulp.task('cssInject',['styles'],function(){
 });
 
 // gulp.task('jsInject',['scripts'],function(){
-// 	return gulp.src('./app/temp/scripts/app.js')
+// 	console.log('js changed');
+// 	return gulp.src('./autoConfig.js')
 // 	.pipe(browserSync.stream());
 
 // });

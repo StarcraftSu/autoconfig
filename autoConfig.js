@@ -37,9 +37,11 @@ var dataController = (function(){
         currentConfig = JSON.stringify(this.getConfig());
         localStorage.setItem('lastConfig',currentConfig);
       },
+      //刷新缓存 
       refresh:function(){
         var storage = localStorage.getItem('lastConfig');
-        if(storage!=='[object Object]'){
+        console.log(storage);
+        if(storage!=='[object Object]'&&storage!==null){
           config = JSON.parse(storage)
         }
         return config;
@@ -236,16 +238,16 @@ var dataController = (function(){
         //更新预览界面
         UI.updatePreview(loadDATA);
     }
-    // var testData = function(){
-    //     var t = DATA.getConfig();
-    //     console.log(t);
-    // }
+    var testData = function(){
+        var t = DATA.getConfig();
+        console.log(t);
+    }
   
     return {
           init:function(){    
               toggleSubList();
+              testData();
               initDATA();
-              //testData();
               initIcon();
               initEvent();
           }
