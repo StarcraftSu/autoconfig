@@ -32,19 +32,21 @@ var dataController = (function(){
         return config;
       },
       store:function(){
-        var currentConfig;
+        var currentConfig,testConfig;
         //存localStorage 需要先转成字符串
         currentConfig = JSON.stringify(this.getConfig());
         localStorage.setItem('lastConfig',currentConfig);
       },
       refresh:function(){
-        config = JSON.parse(localStorage.getItem('lastConfig'))||defaultConfig;
+        var storage = localStorage.getItem('lastConfig');
+        if(storage!=='[object Object]'){
+          config = JSON.parse(storage)
+        }
         return config;
       },
       reset:function(){
           config = defaultConfig;
           this.store();
-          this.refresh();
       }
       
     }
